@@ -4,12 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: str
         """
-        nums.sort()
-        if nums[0]+nums[1]<=nums[2]:
+        a, b, c = nums
+        # Check if it's a valid triangle
+        if a + b <= c or a + c <= b or b + c <= a:
             return "none"
-        elif nums[0]==nums[2]:
+        
+        # Triangle is valid, now classify
+        if a == b == c:
             return "equilateral"
-        elif nums[0]==nums[1] or nums[1]==nums[2]:
+        elif a == b or b == c or a == c:
             return "isosceles"
         else:
             return "scalene"
