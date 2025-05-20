@@ -6,19 +6,13 @@ class Solution(object):
         :rtype: bool
         """
         n = len(nums)
-        diff = [0] * (n + 1)
-
-        for l, r in queries:
-            diff[l] += 1
-            if r + 1 < n:
-                diff[r + 1] -= 1
-
-        count = [0] * n
-        count[0] = diff[0]
-        for i in range(1, n):
-            count[i] = count[i - 1] + diff[i]
-
+        temp=[0]*(n+1)
+        for l,r in queries:
+            temp[l]+=1
+            temp[r+1]-=1
+        cur = 0
         for i in range(n):
-            if count[i] < nums[i]:
+            cur+=temp[i]
+            if cur<nums[i]:
                 return False
         return True
