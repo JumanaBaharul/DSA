@@ -4,12 +4,20 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        count = 0
-        candidate = None
-
-        for num in nums:
-            if count == 0:
-                candidate = num
-            count += (1 if num == candidate else -1)
-
-        return candidate
+        cnt=0
+        el=None
+        for i in range(len(nums)):
+            if cnt==0:
+                cnt=1
+                el=nums[i]
+            elif el==nums[i]:
+                cnt+=1
+            else:
+                cnt-=1
+        cnt1=0
+        for i in range(len(nums)):
+            if nums[i]==el:
+                cnt+=1
+        if cnt>(len(nums)/2):
+            return el
+        return -1
