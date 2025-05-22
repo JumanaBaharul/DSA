@@ -4,14 +4,14 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        cnt=0
-        el=None
-        for i in range(len(nums)):
-            if cnt==0:
-                cnt=1
-                el=nums[i]
-            elif el==nums[i]:
-                cnt+=1
+        c=0
+        majorityele=None
+        for i in nums:
+            if c==0:
+                majorityele=i
+                c=1
+            elif majorityele==i:
+                c+=1
             else:
-                cnt-=1
-        return el
+                c-=1
+        return majorityele
