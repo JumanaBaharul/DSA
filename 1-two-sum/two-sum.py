@@ -5,10 +5,9 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        n=len(nums)
-        for i in range(n):
-            for j in range(n):
-                if i==j:
-                    continue
-                if nums[i]+nums[j]==target:
-                    return [i,j]
+        hash_map={}
+        for index,value in enumerate(nums):
+            required=target-value
+            if required in hash_map:
+                return [hash_map[required],index]
+            hash_map[value]=index
