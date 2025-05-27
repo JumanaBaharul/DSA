@@ -9,7 +9,7 @@ class Solution(object):
         b=0
         for i in range(1,n+1):
             if i%m==0:
-                a+=i
+                b=b+i
             else:
-                b+=i
-        return b-a
+                a=a+i
+        return a-b
