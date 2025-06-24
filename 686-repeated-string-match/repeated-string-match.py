@@ -1,14 +1,12 @@
 class Solution:
     def repeatedStringMatch(self, a: str, b: str) -> int:
+        c=a
         cnt=1
-        repeated=a
-        while len(repeated)<len(b):
-            repeated=repeated+a
+        while len(c)<len(b)+len(a):
+            if b in c:
+                return cnt
+            c+=a
             cnt+=1
-        if b in repeated:
-            return cnt
-        repeated=repeated+a
-        cnt+=1
-        if b in repeated:
+        if b in c:
             return cnt
         return -1
