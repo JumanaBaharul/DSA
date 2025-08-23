@@ -14,13 +14,13 @@ class Solution:
             return (1<<lh)-1
         return 1+self.countNodes(root.left)+self.countNodes(root.right)
 
-    def lHeight(self,node)->int:
+    def lHeight(self,node):
         h=0
         while node:
             h+=1
             node=node.left
         return h
-    def rHeight(self,node)->int:
+    def rHeight(self,node):
         h=0
         while node:
             h+=1
