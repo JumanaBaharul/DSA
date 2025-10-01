@@ -1,9 +1,12 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        def backtrack(start,path):
-            result.append(path)
-            for i in range(start,len(nums)):
-                backtrack(i+1,path+[nums[i]])
-        result=[]
-        backtrack(0,[])
-        return result
+        n=len(nums)
+        subsets=1<<n
+        ans=[]
+        for num in range(subsets):
+            list=[]
+            for i in range(n):
+                if num & (1<<i):
+                    list.append(nums[i])
+            ans.append(list)
+        return ans
