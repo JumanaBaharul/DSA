@@ -1,21 +1,15 @@
 class Solution:
     def countAndSay(self, n: int) -> str:
-        if n==1:
-            return "1"
-        def say(s):
-            s=str(s)
-            result=[]
+        res="1"
+        for i in range(1,n):
+            curr=""
             cnt=1
-            for i in range(1,len(s)):
-                if s[i]==s[i-1]:
+            for j in range(1,len(res)):
+                if res[j]==res[j-1]:
                     cnt+=1
                 else:
-                    result.append(str(cnt)+s[i-1])
+                    curr+=str(cnt)+res[j-1]
                     cnt=1
-            result.append(str(cnt)+s[-1])
-            return ''.join(result)
-
-        current=1
-        for _ in range(n-1):
-            current=say(current)
-        return current
+            curr+=str(cnt)+res[-1]
+            res=curr
+        return res
